@@ -1,0 +1,681 @@
+Analysis & Synthesis report for VGA
+Sat Jun 08 14:26:27 2019
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for qsysPLL:inst1|qsysPLL_altpll_0:altpll_0
+ 14. Source assignments for qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_stdsync_sv6:stdsync2|qsysPLL_altpll_0_dffpipe_l2c:dffpipe3
+ 15. Source assignments for qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 16. Parameter Settings for User Entity Instance: VGA_Controller:inst
+ 17. Parameter Settings for User Entity Instance: qsysPLL:inst1|altera_reset_controller:rst_controller
+ 18. Parameter Settings for User Entity Instance: qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 19. Port Connectivity Checks: "qsysPLL:inst1|altera_reset_controller:rst_controller"
+ 20. Port Connectivity Checks: "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_altpll_63b2:sd1"
+ 21. Port Connectivity Checks: "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun 08 14:26:27 2019    ;
+; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; VGA                                      ;
+; Top-level Entity Name              ; VGA                                      ;
+; Family                             ; Cyclone IV E                             ;
+; Total logic elements               ; 1,055                                    ;
+;     Total combinational functions  ; 1,032                                    ;
+;     Dedicated logic registers      ; 176                                      ;
+; Total registers                    ; 176                                      ;
+; Total pins                         ; 44                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 1                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; VGA                ; VGA                ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                      ;
++----------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                         ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                    ; Library ;
++----------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+; VGA.bdf                                                  ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Harry Keller/Desktop/Game 2.0/VGA.bdf                                                  ;         ;
+; qsysPLL/synthesis/submodules/altera_reset_synchronizer.v ; yes             ; User Verilog HDL File              ; C:/Users/Harry Keller/Desktop/Game 2.0/qsysPLL/synthesis/submodules/altera_reset_synchronizer.v ;         ;
+; qsysPLL/synthesis/submodules/altera_reset_controller.v   ; yes             ; User Verilog HDL File              ; C:/Users/Harry Keller/Desktop/Game 2.0/qsysPLL/synthesis/submodules/altera_reset_controller.v   ;         ;
+; qsysPLL/synthesis/submodules/qsysPLL_altpll_0.v          ; yes             ; User Verilog HDL File              ; C:/Users/Harry Keller/Desktop/Game 2.0/qsysPLL/synthesis/submodules/qsysPLL_altpll_0.v          ;         ;
+; qsysPLL/synthesis/qsysPLL.vhd                            ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/qsysPLL/synthesis/qsysPLL.vhd                            ;         ;
+; player_l.vhd                                             ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/player_l.vhd                                             ;         ;
+; Game.vhd                                                 ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/Game.vhd                                                 ;         ;
+; VGA_Controller.vhd                                       ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/VGA_Controller.vhd                                       ;         ;
+; Keeper.vhd                                               ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/Keeper.vhd                                               ;         ;
+; Ball.vhd                                                 ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/Ball.vhd                                                 ;         ;
+; Keeper_R.vhd                                             ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/Keeper_R.vhd                                             ;         ;
+; player_r.vhd                                             ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/player_r.vhd                                             ;         ;
+; JK_FF.vhd                                                ; yes             ; User VHDL File                     ; C:/Users/Harry Keller/Desktop/Game 2.0/JK_FF.vhd                                                ;         ;
++----------------------------------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,055 ;
+;                                             ;       ;
+; Total combinational functions               ; 1032  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 301   ;
+;     -- 3 input functions                    ; 396   ;
+;     -- <=2 input functions                  ; 335   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 514   ;
+;     -- arithmetic mode                      ; 518   ;
+;                                             ;       ;
+; Total registers                             ; 176   ;
+;     -- Dedicated logic registers            ; 176   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 44    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Total PLLs                                  ; 1     ;
+;     -- PLLs                                 ; 1     ;
+;                                             ;       ;
+; Maximum fan-out                             ; 178   ;
+; Total fan-out                               ; 3556  ;
+; Average fan-out                             ; 2.74  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
+; |VGA                                        ; 1032 (0)          ; 176 (0)      ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |VGA                                                                          ;              ;
+;    |Game:inst5|                             ; 959 (959)         ; 127 (127)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA|Game:inst5                                                               ;              ;
+;    |VGA_Controller:inst|                    ; 73 (73)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA|VGA_Controller:inst                                                      ;              ;
+;    |qsysPLL:inst1|                          ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA|qsysPLL:inst1                                                            ;              ;
+;       |qsysPLL_altpll_0:altpll_0|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA|qsysPLL:inst1|qsysPLL_altpll_0:altpll_0                                  ;              ;
+;          |qsysPLL_altpll_0_altpll_63b2:sd1| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA|qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_altpll_63b2:sd1 ;              ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                                            ; Reason for Removal                     ;
++------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out  ; Stuck at VCC due to stuck port preset  ;
+; qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[0,1] ; Lost fanout                            ;
+; qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|prev_reset                                                                                       ; Stuck at GND due to stuck port clear   ;
+; VGA_Controller:inst|column[12..31]                                                                                                       ; Stuck at GND due to stuck port data_in ;
+; VGA_Controller:inst|row[11..31]                                                                                                          ; Stuck at GND due to stuck port data_in ;
+; Game:inst5|ballSpeed[1]                                                                                                                  ; Merged with Game:inst5|ballSpeed[3]    ;
+; Game:inst5|start[1..9,11..31]                                                                                                            ; Merged with Game:inst5|start[10]       ;
+; Game:inst5|BallDirectionX[0]                                                                                                             ; Stuck at VCC due to stuck port data_in ;
+; Game:inst5|BallDirectionY[0]                                                                                                             ; Stuck at VCC due to stuck port data_in ;
+; Game:inst5|start[10]                                                                                                                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 79                                                                                                   ;                                        ;
++------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                           ; Reason for Removal       ; Registers Removed due to This Register                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out ; Stuck at VCC             ; qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[0], ;
+;                                                                                                                                         ; due to stuck port preset ; qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[1], ;
+;                                                                                                                                         ;                          ; qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|prev_reset, VGA_Controller:inst|column[31],                                                     ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[30], VGA_Controller:inst|column[29],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[28], VGA_Controller:inst|column[27],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[26], VGA_Controller:inst|column[25],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[24], VGA_Controller:inst|column[23],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[22], VGA_Controller:inst|column[21],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[20], VGA_Controller:inst|column[19],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[18], VGA_Controller:inst|column[17],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[16], VGA_Controller:inst|column[15],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[14], VGA_Controller:inst|column[13],                                                                         ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|column[12], VGA_Controller:inst|row[31],                                                                            ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[30], VGA_Controller:inst|row[29],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[28], VGA_Controller:inst|row[27],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[26], VGA_Controller:inst|row[25],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[24], VGA_Controller:inst|row[23],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[22], VGA_Controller:inst|row[21],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[20], VGA_Controller:inst|row[19],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[18], VGA_Controller:inst|row[17],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[16], VGA_Controller:inst|row[15],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[14], VGA_Controller:inst|row[13],                                                                               ;
+;                                                                                                                                         ;                          ; VGA_Controller:inst|row[12], VGA_Controller:inst|row[11],                                                                               ;
+;                                                                                                                                         ;                          ; Game:inst5|BallDirectionX[0], Game:inst5|BallDirectionY[0], Game:inst5|start[10]                                                        ;
++-----------------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 176   ;
+; Number of registers using Synchronous Clear  ; 9     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 99    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; Game:inst5|Player_R_Y1[9]               ; 6       ;
+; Game:inst5|Player_R_Y1[6]               ; 6       ;
+; Game:inst5|Player_R_Y1[5]               ; 6       ;
+; Game:inst5|Player_R_Y1[4]               ; 6       ;
+; Game:inst5|Player_R_Y1[3]               ; 6       ;
+; Game:inst5|Player_R_X1[10]              ; 6       ;
+; Game:inst5|Player_R_X1[7]               ; 6       ;
+; Game:inst5|Player_R_X1[6]               ; 6       ;
+; Game:inst5|Player_R_X1[2]               ; 6       ;
+; Game:inst5|Ball_X1[9]                   ; 13      ;
+; Game:inst5|Ball_X1[8]                   ; 13      ;
+; Game:inst5|Ball_X1[7]                   ; 14      ;
+; Game:inst5|Ball_X1[6]                   ; 18      ;
+; Game:inst5|Ball_Y1[8]                   ; 24      ;
+; Game:inst5|Ball_Y1[7]                   ; 24      ;
+; Game:inst5|Ball_Y1[6]                   ; 23      ;
+; Game:inst5|Ball_Y1[5]                   ; 23      ;
+; Game:inst5|Ball_Y1[4]                   ; 23      ;
+; Game:inst5|Ball_Y1[2]                   ; 23      ;
+; Game:inst5|Keeper_L_Y1[9]               ; 6       ;
+; Game:inst5|Keeper_L_Y1[6]               ; 6       ;
+; Game:inst5|Keeper_L_Y1[5]               ; 6       ;
+; Game:inst5|Keeper_L_Y1[4]               ; 6       ;
+; Game:inst5|Keeper_L_Y1[0]               ; 7       ;
+; Game:inst5|Player_L_Y1[9]               ; 6       ;
+; Game:inst5|Player_L_Y1[6]               ; 6       ;
+; Game:inst5|Player_L_Y1[5]               ; 6       ;
+; Game:inst5|Player_L_Y1[4]               ; 6       ;
+; Game:inst5|Player_L_Y1[3]               ; 6       ;
+; Game:inst5|Keeper_R_Y1[9]               ; 6       ;
+; Game:inst5|Keeper_R_Y1[6]               ; 6       ;
+; Game:inst5|Keeper_R_Y1[5]               ; 6       ;
+; Game:inst5|Keeper_R_Y1[4]               ; 6       ;
+; Game:inst5|Keeper_R_Y1[0]               ; 7       ;
+; Game:inst5|start[0]                     ; 12      ;
+; Game:inst5|ballSpeed[3]                 ; 2       ;
+; Total number of inverted registers = 36 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGA|Game:inst5|Keeper_L_Y1[10]   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGA|Game:inst5|Player_L_Y1[11]   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGA|Game:inst5|Keeper_R_Y1[11]   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |VGA|Game:inst5|Player_R_X1[0]    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGA|Game:inst5|Player_R_Y1[2]    ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |VGA|Game:inst5|delay_keeper_l[4] ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |VGA|Game:inst5|delay_player_l[3] ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |VGA|Game:inst5|delay_keeper_r[6] ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |VGA|Game:inst5|ballSpeed[0]      ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |VGA|Game:inst5|delay_player_r[2] ;
+; 13:1               ; 7 bits    ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |VGA|Game:inst5|Ball_X1[1]        ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |VGA|Game:inst5|Ball_Y1[0]        ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |VGA|Game:inst5|Keeper_L_Y1[5]    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |VGA|Game:inst5|Player_L_Y1[3]    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |VGA|Game:inst5|Keeper_R_Y1[5]    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |VGA|Game:inst5|Player_R_X1[10]   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |VGA|Game:inst5|Player_R_Y1[3]    ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |VGA|Game:inst5|Ball_X1[7]        ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |VGA|Game:inst5|Ball_Y1[4]        ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |VGA|VGA_Controller:inst|v_count  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for qsysPLL:inst1|qsysPLL_altpll_0:altpll_0 ;
++----------------+-------+------+--------------------------------+
+; Assignment     ; Value ; From ; To                             ;
++----------------+-------+------+--------------------------------+
+; POWER_UP_LEVEL ; HIGH  ; -    ; pfdena_reg                     ;
++----------------+-------+------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_stdsync_sv6:stdsync2|qsysPLL_altpll_0_dffpipe_l2c:dffpipe3 ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                        ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF   ; -    ; -                                                                                         ;
++---------------------------------+-------+------+-------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1 ;
++-------------------+-------+------+-------------------------------------------------------------------------------------+
+; Assignment        ; Value ; From ; To                                                                                  ;
++-------------------+-------+------+-------------------------------------------------------------------------------------+
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[1]                                              ;
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[0]                                              ;
++-------------------+-------+------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_Controller:inst ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; h_pulse        ; 44    ; Signed Integer                          ;
+; h_bp           ; 148   ; Signed Integer                          ;
+; h_display      ; 1920  ; Signed Integer                          ;
+; h_pol          ; '1'   ; Enumerated                              ;
+; h_fp           ; 88    ; Signed Integer                          ;
+; v_pulse        ; 5     ; Signed Integer                          ;
+; v_bp           ; 36    ; Signed Integer                          ;
+; v_display      ; 1080  ; Signed Integer                          ;
+; v_fp           ; 4     ; Signed Integer                          ;
+; v_pol          ; '1'   ; Enumerated                              ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: qsysPLL:inst1|altera_reset_controller:rst_controller ;
++-------------------------+----------+--------------------------------------------------------------+
+; Parameter Name          ; Value    ; Type                                                         ;
++-------------------------+----------+--------------------------------------------------------------+
+; NUM_RESET_INPUTS        ; 1        ; Signed Integer                                               ;
+; OUTPUT_RESET_SYNC_EDGES ; deassert ; String                                                       ;
+; SYNC_DEPTH              ; 2        ; Signed Integer                                               ;
++-------------------------+----------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1 ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------+
+; ASYNC_RESET    ; 1     ; Unsigned Binary                                                                                                     ;
+; DEPTH          ; 2     ; Signed Integer                                                                                                      ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "qsysPLL:inst1|altera_reset_controller:rst_controller" ;
++------------+-------+----------+--------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                          ;
++------------+-------+----------+--------------------------------------------------+
+; reset_in1  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in2  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in3  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in4  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in5  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in6  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in7  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in8  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in9  ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in10 ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in11 ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in12 ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in13 ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in14 ; Input ; Info     ; Stuck at GND                                     ;
+; reset_in15 ; Input ; Info     ; Stuck at GND                                     ;
++------------+-------+----------+--------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_altpll_63b2:sd1"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; clk[4..2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; inclk[1]  ; Input  ; Info     ; Stuck at GND                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0"                                                 ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; readdata  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; locked    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; phasedone ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
+    Info: Processing started: Sat Jun 08 14:26:14 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12248): Elaborating Qsys system entity "qsysPLL.qsys"
+Info (12250): 2019.06.08.14:26:17 Progress: Loading Game 2.0/qsysPLL.qsys
+Warning (12251): There was a problem reading the input file, it may be corrupted
+Warning (12251): 233:97: cvc-complex-type.2.4.a: Invalid content was found starting with element 'interconnectRequirement'. One of '{connection}' is expected.
+Info (12250): 2019.06.08.14:26:17 Progress: Reading input file
+Info (12250): 2019.06.08.14:26:18 Progress: Adding clk_0 [clock_source 13.0]
+Warning (12251): Clk_0: Used clock_source 12.1 (instead of 13.0)
+Info (12250): 2019.06.08.14:26:18 Progress: Parameterizing module clk_0
+Info (12250): 2019.06.08.14:26:18 Progress: Adding altpll_0 [altpll 13.0]
+Warning (12251): Altpll_0: Used altpll 12.1 (instead of 13.0)
+Info (12250): 2019.06.08.14:26:18 Progress: Parameterizing module altpll_0
+Info (12250): 2019.06.08.14:26:18 Progress: Building connections
+Info (12250): 2019.06.08.14:26:18 Progress: Parameterizing connections
+Info (12250): 2019.06.08.14:26:18 Progress: Validating
+Info (12250): 2019.06.08.14:26:18 Progress: Done reading input file
+Warning (12251): QsysPLL.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Warning (12251): QsysPLL.altpll_0: altpll_0.areset_conduit must be exported, or connected to a matching conduit.
+Warning (12251): QsysPLL.altpll_0: altpll_0.locked_conduit must be exported, or connected to a matching conduit.
+Warning (12251): QsysPLL.altpll_0: altpll_0.phasedone_conduit must be exported, or connected to a matching conduit.
+Info (12250): QsysPLL: Generating qsysPLL "qsysPLL" for QUARTUS_SYNTH
+Info (12250): Pipeline_bridge_swap_transform: After transform: 2 modules, 2 connections
+Info (12250): No custom instruction connections, skipping transform 
+Info (12250): No Avalon connections, skipping transform 
+Info (12250): No Avalon connections, skipping transform 
+Info (12250): Reset_adaptation_transform: After transform: 3 modules, 4 connections
+Info (12250): Altpll_0: "qsysPLL" instantiated altpll "altpll_0"
+Info (12250): Rst_controller: "qsysPLL" instantiated altera_reset_controller "rst_controller"
+Info (12250): QsysPLL: Done qsysPLL" with 3 modules, 5 files, 22759 bytes
+Info (12249): Finished elaborating Qsys system entity "qsysPLL.qsys"
+Info (12021): Found 1 design units, including 1 entities, in source file vga.bdf
+    Info (12023): Found entity 1: VGA
+Info (12021): Found 0 design units, including 0 entities, in source file player.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file qsyspll/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer
+Info (12021): Found 1 design units, including 1 entities, in source file qsyspll/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller
+Info (12021): Found 4 design units, including 4 entities, in source file qsyspll/synthesis/submodules/qsyspll_altpll_0.v
+    Info (12023): Found entity 1: qsysPLL_altpll_0_dffpipe_l2c
+    Info (12023): Found entity 2: qsysPLL_altpll_0_stdsync_sv6
+    Info (12023): Found entity 3: qsysPLL_altpll_0_altpll_63b2
+    Info (12023): Found entity 4: qsysPLL_altpll_0
+Info (12021): Found 2 design units, including 1 entities, in source file qsyspll/synthesis/qsyspll.vhd
+    Info (12022): Found design unit 1: qsysPLL-rtl
+    Info (12023): Found entity 1: qsysPLL
+Info (12021): Found 2 design units, including 0 entities, in source file player_l.vhd
+    Info (12022): Found design unit 1: Player_L
+    Info (12022): Found design unit 2: Player_L-body
+Info (12021): Found 2 design units, including 1 entities, in source file game.vhd
+    Info (12022): Found design unit 1: Game-behav
+    Info (12023): Found entity 1: Game
+Info (12021): Found 2 design units, including 1 entities, in source file vga_controller.vhd
+    Info (12022): Found design unit 1: vga_controller-behav
+    Info (12023): Found entity 1: VGA_Controller
+Info (12021): Found 2 design units, including 0 entities, in source file keeper.vhd
+    Info (12022): Found design unit 1: Keeper_L
+    Info (12022): Found design unit 2: Keeper_L-body
+Info (12021): Found 2 design units, including 0 entities, in source file ball.vhd
+    Info (12022): Found design unit 1: Ball
+    Info (12022): Found design unit 2: Ball-body
+Info (12021): Found 2 design units, including 0 entities, in source file keeper_r.vhd
+    Info (12022): Found design unit 1: Keeper_R
+    Info (12022): Found design unit 2: Keeper_R-body
+Info (12021): Found 2 design units, including 0 entities, in source file player_r.vhd
+    Info (12022): Found design unit 1: Player_R
+    Info (12022): Found design unit 2: Player_R-body
+Info (12021): Found 2 design units, including 0 entities, in source file jk_ff.vhd
+    Info (12022): Found design unit 1: JK_FF
+    Info (12022): Found design unit 2: JK_FF-body
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/qsyspll/qsyspll.v
+    Info (12023): Found entity 1: qsysPLL
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/qsyspll/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/qsyspll/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer
+Info (12021): Found 4 design units, including 4 entities, in source file db/ip/qsyspll/submodules/qsyspll_altpll_0.v
+    Info (12023): Found entity 1: qsysPLL_altpll_0_dffpipe_l2c
+    Info (12023): Found entity 2: qsysPLL_altpll_0_stdsync_sv6
+    Info (12023): Found entity 3: qsysPLL_altpll_0_altpll_63b2
+    Info (12023): Found entity 4: qsysPLL_altpll_0
+Info (12127): Elaborating entity "VGA" for the top level hierarchy
+Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:inst"
+Info (12128): Elaborating entity "qsysPLL" for hierarchy "qsysPLL:inst1"
+Info (12128): Elaborating entity "qsysPLL_altpll_0" for hierarchy "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0"
+Info (12128): Elaborating entity "qsysPLL_altpll_0_stdsync_sv6" for hierarchy "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_stdsync_sv6:stdsync2"
+Info (12128): Elaborating entity "qsysPLL_altpll_0_dffpipe_l2c" for hierarchy "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_stdsync_sv6:stdsync2|qsysPLL_altpll_0_dffpipe_l2c:dffpipe3"
+Info (12128): Elaborating entity "qsysPLL_altpll_0_altpll_63b2" for hierarchy "qsysPLL:inst1|qsysPLL_altpll_0:altpll_0|qsysPLL_altpll_0_altpll_63b2:sd1"
+Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "qsysPLL:inst1|altera_reset_controller:rst_controller"
+Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "qsysPLL:inst1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1"
+Info (12128): Elaborating entity "Game" for hierarchy "Game:inst5"
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(54): used explicit default value for signal "field_L" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(55): used explicit default value for signal "field_R" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(56): used explicit default value for signal "field_M" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(58): used explicit default value for signal "field_U" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(59): used explicit default value for signal "field_O" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(61): used explicit default value for signal "Goal_U" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(62): used explicit default value for signal "Goal_O" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(65): used explicit default value for signal "Keeper_L_X1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(68): used explicit default value for signal "Keeper_R_X1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Game.vhd(71): used explicit default value for signal "Player_L_X1" because signal was never assigned a value
+Warning (10492): VHDL Process Statement warning at Game.vhd(373): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(373): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(373): signal "Keeper_R_X1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(373): signal "Keeper_R_Y1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(374): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(374): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(374): signal "Keeper_L_X1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(374): signal "Keeper_L_Y1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(376): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(376): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(376): signal "Player_L_X1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(376): signal "Player_L_Y1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(377): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(377): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(377): signal "Player_R_X1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(377): signal "Player_R_Y1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(379): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(379): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(379): signal "Ball_X1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(379): signal "Ball_Y1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "field_L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "field_R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "Goal_U" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(387): signal "Goal_O" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(389): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(389): signal "field_L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(393): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(393): signal "field_R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "field_U" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "field_O" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "field_L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(399): signal "field_R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "current_row" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "field_L" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "field_M" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "field_R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "current_column" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "field_U" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Game.vhd(400): signal "field_O" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "n_blank" is stuck at VCC
+    Warning (13410): Pin "n_sync" is stuck at GND
+    Warning (13410): Pin "pin_name2" is stuck at GND
+    Warning (13410): Pin "pin_name4" is stuck at GND
+    Warning (13410): Pin "pin_name5" is stuck at GND
+    Warning (13410): Pin "pin_name6" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1124 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 35 output pins
+    Info (21061): Implemented 1079 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 68 warnings
+    Info: Peak virtual memory: 402 megabytes
+    Info: Processing ended: Sat Jun 08 14:26:27 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:10
+
+

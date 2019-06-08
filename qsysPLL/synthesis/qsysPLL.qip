@@ -1,0 +1,21 @@
+set_global_assignment -entity "qsysPLL" -library "qsysPLL" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "qsysPLL" -library "qsysPLL" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "qsysPLL" -library "qsysPLL" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "qsysPLL" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../qsysPLL.sopcinfo"]
+set_instance_assignment -entity "qsysPLL" -library "qsysPLL" -name SLD_INFO "QSYS_NAME qsysPLL HAS_SOPCINFO 1 GENERATION_ID 1534087439"
+set_global_assignment -library "qsysPLL" -name MISC_FILE [file join $::quartus(qip_path) "../../qsysPLL.cmp"]
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "qsysPLL" -name MISC_FILE [file join $::quartus(qip_path) "../../qsysPLL.qsys"]
+
+set_global_assignment -library "qsysPLL" -name VHDL_FILE [file join $::quartus(qip_path) "qsysPLL.vhd"]
+set_global_assignment -library "qsysPLL" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
+set_global_assignment -library "qsysPLL" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
+set_global_assignment -library "qsysPLL" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "qsysPLL" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/qsysPLL_altpll_0.v"]
+
+set_global_assignment -entity "altera_reset_controller" -library "qsysPLL" -name IP_TOOL_NAME "altera_reset_controller"
+set_global_assignment -entity "altera_reset_controller" -library "qsysPLL" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_reset_controller" -library "qsysPLL" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "qsysPLL_altpll_0" -library "qsysPLL" -name IP_TOOL_NAME "altpll"
+set_global_assignment -entity "qsysPLL_altpll_0" -library "qsysPLL" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "qsysPLL_altpll_0" -library "qsysPLL" -name IP_TOOL_ENV "Qsys"
